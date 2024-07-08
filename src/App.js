@@ -1,31 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
 import TaskManager from './components/TaskManager';
-import { auth } from './firebase/config';
+import PrivateRoute from './components/PrivateRoute';
 
-const App = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
+function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={user ? <Navigate to="/tasks" /> : <Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/tasks" element={user ? <TaskManager /> : <Navigate to="/login" />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/taskmanager"
+        element={
+          <PrivateRoute>
+            <TaskManager />
+          </PrivateRoute>
+        }
+      />
+      <Route path="/" element={<Login />} />
+    </Routes>
   );
-};
+}
 
 export default App;

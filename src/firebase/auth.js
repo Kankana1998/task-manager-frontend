@@ -1,12 +1,22 @@
-import { createUserWithEmailAndPassword, signOut  } from 'firebase/auth';
-import { auth } from './config';
+import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { app } from './config';
+
+const auth = getAuth(app);
 
 const register = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
-export const logout = async () => {
-  return await signOut(auth);
+const login = (email, password) => {
+  return signInWithEmailAndPassword(auth, email, password);
 };
 
-export { register };
+const logout = () => {
+  return signOut(auth);
+};
+
+const onAuthChange = (callback) => {
+  return onAuthStateChanged(auth, callback);
+};
+
+export { register, login, logout, onAuthChange };
