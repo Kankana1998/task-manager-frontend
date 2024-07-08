@@ -1,3 +1,6 @@
+This is a TODO Manager Application. The frontend part of the application has been built using react js and tailwind css. As this assignment has been attempted as a frontend engineer so the backend has been built using Firebase. The db integration and authentication has been done using firebase.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
