@@ -17,7 +17,7 @@ const TaskItem = ({ task, onDelete }) => {
         <select
           value={task.status}
           onChange={handleChangeStatus}
-          className="mt-2 block border border-gray-300 rounded-md"
+          className="mt-2 mb-3 block border border-gray-300 rounded-md"
         >
           <option value="To Do">To Do</option>
           <option value="In Progress">In Progress</option>
@@ -26,7 +26,7 @@ const TaskItem = ({ task, onDelete }) => {
       </div>
       <button
         onClick={onDelete}
-        className="bg-red-500 text-white px-4 py-2 rounded-md shadow-sm"
+        className="bg-red-500 text-white mt-4 px-4 py-2 rounded-md shadow-sm"
       >
         Delete
       </button>
