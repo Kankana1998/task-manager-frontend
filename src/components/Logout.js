@@ -15,8 +15,8 @@ const Logout = () => {
   };
 
   return (
-    <div className="flex justify-center mb-6 pt-2">
-       <button onClick={handleLogout} className=" max-w-md bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">
+    <div className="flex justify-center mb-6 mr-4 pt-2">
+       <button onClick={handleLogout} className=" max-w-md bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded" >
       Logout
     </button>
     </div>
